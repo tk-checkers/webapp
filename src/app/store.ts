@@ -2,31 +2,24 @@ import { combineReducers, configureStore, ThunkAction, Action } from '@reduxjs/t
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-
-
 const reducers = combineReducers({
-  // product: productReducer,
-  // auth: authReducer
+    // product: productReducer,
+    // auth: authReducer
 });
 
 const persistConfig = {
-  key: 'root',
-  storage,
-  whitelist: ['auth']
+    key: 'root',
+    storage,
+    whitelist: ['auth'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
-  reducer: persistedReducer
+    reducer: persistedReducer,
 });
 
 export const persistor = persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState>;
-export type AppThunk<ReturnType = void> = ThunkAction<
-    ReturnType,
-    RootState,
-    unknown,
-    Action<string>
-    >;
+export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, Action<string>>;

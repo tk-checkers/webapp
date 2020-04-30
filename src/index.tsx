@@ -6,7 +6,10 @@ import App from './App';
 import { store, persistor } from './app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
-import { PersistGate } from "redux-persist/integration/react";
+import { PersistGate } from 'redux-persist/integration/react';
+import Pusher from 'pusher-js';
+
+(window as any).Pusher = Pusher;
 
 ReactDOM.render(
     <React.StrictMode>
@@ -16,7 +19,7 @@ ReactDOM.render(
             </PersistGate>
         </Provider>
     </React.StrictMode>,
-    document.getElementById('root')
+    document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change
