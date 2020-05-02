@@ -8,7 +8,7 @@ function App() {
     return (
         <Router>
             <Switch>
-                <Route path="/game/:matchId" component={GamePage} />
+                <Route path="/match/:matchId" component={GamePage} />
                 <Route path="/" component={IndexPage} />
             </Switch>
         </Router>
